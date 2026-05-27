@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-TW"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NUBIZIO 品牌簡介 — 台灣經銷商專用</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Noto+Serif+TC:wght@300;400;500&amp;family=Noto+Sans+TC:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nub-coral: #E8604A;
+    --nub-coral-dark: #C4432D;
+    --nub-coral-light: #F28070;
+    --nub-coral-pale: #FDF0EE;
+    --nub-black: #1A1814;
+    --nub-dark: #2C2A28;
+    --nub-gray: #6B6965;
+    --nub-gray-light: #9E9B98;
+    --nub-cream: #F8F6F2;
+    --nub-border: rgba(30,25,20,0.1);
+    --nub-border-strong: rgba(30,25,20,0.25);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: var(--nub-cream); color: var(--nub-black); font-weight: 300; line-height: 1.8; overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(26,24,20,0.97); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: space-between; padding: 0 3.5rem; height: 60px; }
+  .nav-logo img { height: 26px; filter: brightness(0) invert(1); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 11px; letter-spacing: 0.15em; color: rgba(255,255,255,0.55); text-decoration: none; text-transform: uppercase; font-weight: 400; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--nub-coral); }
+  .nav-cta { font-size: 11px; padding: 7px 18px; background: var(--nub-coral) !important; color: white !important; border-radius: 2px; }
+
+  /* HERO */
+  .hero { position: relative; height: 100vh; min-height: 600px; overflow: hidden; display: flex; align-items: flex-end; }
+  .hero-bg { position: absolute; inset: 0; background-image: url('img_001_c7a719a4.jpg'); background-size: cover; background-position: center; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(26,24,20,0.88) 0%, rgba(26,24,20,0.55) 55%, rgba(26,24,20,0.1) 100%); }
+  .hero-content { position: relative; z-index: 10; padding: 0 5rem 6rem; max-width: 680px; }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--nub-coral); font-weight: 400; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+  .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--nub-coral); }
+  .hero-logo { margin-bottom: 1.5rem; }
+  .hero-logo img { height: 46px; filter: brightness(0) invert(1); }
+  .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 58px); font-weight: 400; line-height: 1.2; color: white; margin-bottom: 1.5rem; }
+  .hero-tagline em { color: var(--nub-coral); font-style: italic; }
+  .hero-sub { font-size: 14px; color: rgba(255,255,255,0.58); letter-spacing: 0.04em; margin-bottom: 3rem; max-width: 400px; line-height: 2; }
+  .hero-stats { display: flex; gap: 0; border-top: 0.5px solid rgba(255,255,255,0.14); padding-top: 2rem; }
+  .hero-stat { flex: 1; padding-right: 2rem; border-right: 0.5px solid rgba(255,255,255,0.1); margin-right: 2rem; }
+  .hero-stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+  .hero-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 500; color: white; line-height: 1; display: block; }
+  .hero-stat-label { font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-top: 4px; }
+  .hero-scroll { position: absolute; bottom: 2.5rem; right: 3.5rem; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.3); writing-mode: vertical-rl; z-index: 10; }
+  .hero-scroll-line { width: 0.5px; height: 48px; background: linear-gradient(to bottom, var(--nub-coral), transparent); animation: grow 1.8s ease-in-out infinite; }
+  @keyframes grow { 0%,100% { transform: scaleY(0.2); opacity: 0.3; } 50% { transform: scaleY(1); opacity: 1; } }
+
+  /* BANNER */
+  .banner-strip { height: 420px; overflow: hidden; position: relative; }
+  .banner-strip img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+  .banner-strip-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .banner-strip-text { text-align: center; color: white; }
+  .banner-strip-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 5vw, 54px); font-weight: 400; line-height: 1.2; margin-bottom: 1rem; }
+  .banner-strip-text p { font-size: 12px; color: rgba(255,255,255,0.65); letter-spacing: 0.18em; text-transform: uppercase; }
+
+  /* SECTION COMMON */
+  .section-wrap { max-width: 1140px; margin: 0 auto; padding: 7rem 4rem; }
+  .section-label { font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--nub-coral); font-weight: 400; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; }
+  .section-label::after { content: ''; flex: 1; max-width: 56px; height: 0.5px; background: var(--nub-border-strong); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4.5vw, 50px); font-weight: 500; line-height: 1.15; color: var(--nub-black); margin-bottom: 0.5rem; }
+  .section-title em { font-style: italic; color: var(--nub-coral); }
+  .divider { width: 34px; height: 2px; background: var(--nub-coral); margin: 1.5rem 0 2.5rem; }
+
+  /* ABOUT */
+  .about-section { background: white; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: start; }
+  .about-text { font-size: 15px; color: var(--nub-gray); line-height: 2; }
+  .about-text p + p { margin-top: 1.5rem; }
+  .about-text strong { color: var(--nub-black); font-weight: 500; }
+  .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--nub-border); border: 0.5px solid var(--nub-border); }
+  .value-card { background: var(--nub-cream); padding: 1.5rem; transition: background 0.2s; }
+  .value-card:hover { background: white; }
+  .value-icon { font-size: 18px; margin-bottom: 0.7rem; display: block; color: var(--nub-coral); }
+  .value-name { font-size: 13px; font-weight: 500; color: var(--nub-black); margin-bottom: 0.3rem; }
+  .value-desc { font-size: 12px; color: var(--nub-gray-light); line-height: 1.7; }
+
+  /* STORY */
+  .story-section { background: var(--nub-black); }
+  .story-wrap { max-width: 1140px; margin: 0 auto; padding: 7rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .story-img { position: relative; height: 480px; overflow: hidden; border-radius: 2px; }
+  .story-img img { width: 100%; height: 100%; object-fit: cover; }
+  .story-img-badge { position: absolute; bottom: 1.5rem; left: 1.5rem; background: var(--nub-coral); color: white; font-size: 11px; padding: 6px 14px; letter-spacing: 0.15em; text-transform: uppercase; }
+  .story-content .section-label { color: var(--nub-coral); }
+  .story-content .section-label::after { background: rgba(255,255,255,0.12); }
+  .story-content .section-title { color: white; }
+  .story-content .section-title em { color: var(--nub-coral-light); }
+  .story-text { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 2; }
+  .story-text p + p { margin-top: 1.5rem; }
+  .story-quote { margin-top: 2rem; padding: 1.5rem 1.75rem; border-left: 2px solid var(--nub-coral); background: rgba(232,96,74,0.06); }
+  .story-quote p { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: rgba(255,255,255,0.8); line-height: 1.7; }
+
+  /* PRODUCTS */
+  .products-section { background: var(--nub-cream); }
+  .products-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 3.5rem; }
+  .products-header p { font-size: 14.5px; color: var(--nub-gray); line-height: 2; }
+  .product-hero { display: grid; grid-template-columns: 1.2fr 1fr; background: white; border: 0.5px solid var(--nub-border); margin-bottom: 1.5px; overflow: hidden; min-height: 400px; }
+  .product-hero-img { overflow: hidden; }
+  .product-hero-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+  .product-hero:hover .product-hero-img img { transform: scale(1.04); }
+  .product-hero-info { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+  .product-badge { display: inline-block; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; background: var(--nub-coral); color: white; padding: 4px 12px; margin-bottom: 1.25rem; border-radius: 1px; }
+  .product-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; color: var(--nub-black); line-height: 1.2; margin-bottom: 1rem; }
+  .product-desc { font-size: 13.5px; color: var(--nub-gray); line-height: 2; margin-bottom: 1.5rem; }
+  .product-features { display: flex; flex-direction: column; gap: 0.45rem; }
+  .feat-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--nub-gray); }
+  .feat-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--nub-coral); flex-shrink: 0; }
+  .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--nub-border); border: 0.5px solid var(--nub-border); margin-bottom: 1.5px; }
+  .product-card { background: white; overflow: hidden; transition: background 0.2s; }
+  .product-card:hover { background: var(--nub-cream); }
+  .product-card-img { width: 100%; height: 220px; overflow: hidden; }
+  .product-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .product-card:hover .product-card-img img { transform: scale(1.06); }
+  .product-card-body { padding: 1.5rem 1.75rem; }
+  .product-card .product-name { font-size: 18px; }
+  .product-card .product-desc { font-size: 12.5px; }
+  .product-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: var(--nub-border); border: 0.5px solid var(--nub-border); }
+  .product-2col-card { background: white; display: grid; grid-template-columns: 180px 1fr; overflow: hidden; transition: background 0.2s; }
+  .product-2col-card:hover { background: var(--nub-cream); }
+  .product-2col-img { overflow: hidden; }
+  .product-2col-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+  .product-2col-card:hover .product-2col-img img { transform: scale(1.06); }
+  .product-2col-body { padding: 1.5rem; }
+  .product-2col-body .product-name { font-size: 16px; }
+  .product-2col-body .product-desc { font-size: 12px; }
+
+  /* MARKET */
+  .market-section { background: white; }
+  .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .pain-list { display: flex; flex-direction: column; gap: 1px; background: var(--nub-border); border: 0.5px solid var(--nub-border); margin-top: 1.5rem; }
+  .pain-item { background: var(--nub-cream); padding: 1.2rem 1.5rem; display: flex; gap: 1rem; align-items: flex-start; transition: background 0.2s; }
+  .pain-item:hover { background: white; }
+  .pain-x { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: rgba(232,96,74,0.12); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--nub-coral); font-weight: 500; margin-top: 1px; }
+  .pain-title { font-size: 13px; font-weight: 500; color: var(--nub-black); display: block; margin-bottom: 2px; }
+  .pain-desc { font-size: 12px; color: var(--nub-gray-light); }
+  .segment-list { display: flex; flex-direction: column; gap: 1px; background: var(--nub-border); border: 0.5px solid var(--nub-border); margin-bottom: 2rem; }
+  .segment-item { background: white; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 13.5px; transition: background 0.2s; }
+  .segment-item:hover { background: var(--nub-coral-pale); }
+  .segment-num { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--nub-coral); }
+  .trend-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+  .trend-badge { font-size: 11px; padding: 4px 12px; border: 0.5px solid var(--nub-coral); color: var(--nub-coral); background: transparent; border-radius: 1px; letter-spacing: 0.04em; }
+
+  /* WHY */
+  .why-section { background: var(--nub-black); }
+  .why-wrap { max-width: 1140px; margin: 0 auto; padding: 7rem 4rem; }
+  .why-wrap .section-label { color: var(--nub-coral); }
+  .why-wrap .section-label::after { background: rgba(255,255,255,0.14); }
+  .why-wrap .section-title { color: white; }
+  .why-wrap .section-title em { color: var(--nub-coral-light); }
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(255,255,255,0.06); border: 0.5px solid rgba(255,255,255,0.06); margin-top: 3rem; }
+  .why-card { background: rgba(255,255,255,0.02); padding: 2.5rem 2rem; transition: background 0.2s; }
+  .why-card:hover { background: rgba(232,96,74,0.07); }
+  .why-num { font-family: 'Cormorant Garamond', serif; font-size: 46px; color: rgba(232,96,74,0.22); line-height: 1; display: block; margin-bottom: 1.25rem; border-bottom: 0.5px solid rgba(255,255,255,0.07); padding-bottom: 1.25rem; font-weight: 500; }
+  .why-title { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.88); margin-bottom: 0.75rem; }
+  .why-desc { font-size: 12.5px; color: rgba(255,255,255,0.42); line-height: 1.9; }
+
+  /* AUDIENCE */
+  .audience-section { background: var(--nub-coral); }
+  .audience-wrap { max-width: 1140px; margin: 0 auto; padding: 7rem 4rem; }
+  .audience-wrap .section-label { color: rgba(255,255,255,0.65); }
+  .audience-wrap .section-label::after { background: rgba(255,255,255,0.18); }
+  .audience-wrap .section-title { color: white; }
+  .audience-wrap .section-title em { color: rgba(255,255,255,0.65); font-style: italic; }
+  .audience-wrap .divider { background: rgba(255,255,255,0.35); }
+  .audience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px; background: rgba(255,255,255,0.15); border: 0.5px solid rgba(255,255,255,0.15); margin-top: 3rem; }
+  .audience-card { background: rgba(255,255,255,0.04); padding: 2.5rem 1.75rem; transition: background 0.2s; }
+  .audience-card:hover { background: rgba(255,255,255,0.12); }
+  .audience-num { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 500; color: rgba(255,255,255,0.9); display: block; line-height: 1; margin-bottom: 1rem; border-bottom: 0.5px solid rgba(255,255,255,0.2); padding-bottom: 1rem; }
+  .audience-name { font-size: 15px; font-weight: 500; color: white; margin-bottom: 0.6rem; }
+  .audience-desc { font-size: 12px; color: rgba(255,255,255,0.58); line-height: 1.8; }
+
+  /* STANDARDS */
+  .standards-section { background: var(--nub-cream); }
+  .standards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: var(--nub-border); border: 0.5px solid var(--nub-border); margin-top: 3rem; }
+  .standard-item { background: white; padding: 2rem 2.5rem; display: flex; gap: 1.5rem; align-items: flex-start; transition: background 0.2s; }
+  .standard-item:hover { background: var(--nub-coral-pale); }
+  .standard-num { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 500; color: var(--nub-coral); line-height: 1; flex-shrink: 0; min-width: 34px; }
+  .standard-title { font-size: 14px; font-weight: 500; color: var(--nub-black); margin-bottom: 0.4rem; }
+  .standard-desc { font-size: 12.5px; color: var(--nub-gray); line-height: 1.9; }
+
+  /* PARTNERSHIP */
+  .partner-section { background: white; }
+  .partner-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5px; background: var(--nub-border); border: 0.5px solid var(--nub-border); margin-top: 3rem; }
+  .partner-step { background: var(--nub-cream); padding: 2rem 1.5rem; transition: background 0.2s; }
+  .partner-step:hover { background: var(--nub-coral-pale); }
+  .partner-step-num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 500; color: var(--nub-coral); line-height: 1; display: block; margin-bottom: 1rem; border-bottom: 0.5px solid var(--nub-border); padding-bottom: 1rem; }
+  .partner-step-title { font-size: 13px; font-weight: 500; color: var(--nub-black); margin-bottom: 0.5rem; }
+  .partner-step-desc { font-size: 11.5px; color: var(--nub-gray); line-height: 1.8; }
+  .partner-kpi-row { margin-top: 2.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--nub-border); border: 0.5px solid var(--nub-border); }
+  .partner-kpi { background: var(--nub-black); padding: 2.5rem 2rem; text-align: center; }
+  .partner-kpi-num { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 500; color: var(--nub-coral); display: block; line-height: 1; margin-bottom: 8px; }
+  .partner-kpi-label { font-size: 11px; color: rgba(255,255,255,0.38); letter-spacing: 0.12em; text-transform: uppercase; }
+
+  /* FOOTER */
+  footer { background: var(--nub-black); padding: 4rem; display: grid; grid-template-columns: auto 1fr auto; gap: 3rem; align-items: center; border-top: 1.5px solid var(--nub-coral); }
+  footer img { height: 28px; filter: brightness(0) invert(1); }
+  .footer-tagline { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: rgba(255,255,255,0.32); text-align: center; }
+  .footer-info { text-align: right; font-size: 11.5px; color: rgba(255,255,255,0.32); line-height: 2; }
+  .footer-info a { color: var(--nub-coral-light); text-decoration: none; }
+
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .hero-content { padding: 0 1.5rem 4rem; max-width: 100%; }
+    .section-wrap, .story-wrap, .audience-wrap, .partner-wrap, .why-wrap { padding: 5rem 1.5rem; }
+    .about-grid, .story-wrap, .market-grid, .products-header { grid-template-columns: 1fr; gap: 2.5rem; }
+    .product-hero { grid-template-columns: 1fr; }
+    .product-hero-img { height: 260px; }
+    .product-grid { grid-template-columns: 1fr 1fr; }
+    .product-2col { grid-template-columns: 1fr; }
+    .product-2col-card { grid-template-columns: 130px 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .audience-grid { grid-template-columns: 1fr 1fr; }
+    .partner-grid { grid-template-columns: 1fr 1fr; }
+    .partner-kpi-row { grid-template-columns: 1fr; }
+    .standards-grid { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr; text-align: center; }
+    .footer-info { text-align: center; }
+  }
+</style>
+</head>
+<body class="edit-mode">
+
+<nav>
+  <a href="#top" class="nav-logo"><img src="img_002_b7a08bb5.png" alt="NUBIZIO" data-edit-bound="1"></a>
+  <ul class="nav-links">
+    <li><a href="#about">品牌</a></li>
+    <li><a href="#products">產品</a></li>
+    
+    
+    
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" id="heroBg" style="transform: translateY(1387.12px);"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" data-original="韓國機能寢具代表品牌">韓國機能寢具代表品牌</div>
+    <div class="hero-logo"><img src="img_003_b7a08bb5.png" alt="NUBIZIO" data-edit-bound="1"></div>
+    <h1 class="hero-tagline" data-original="好眠，是每個家庭&lt;br&gt;應得的&lt;em&gt;日常&lt;/em&gt;">好眠，是每個家庭<br>應得的<em>日常</em></h1>
+    <p class="hero-sub" data-original="NUBIZIO 以「機能 × 美感 × 健康」三大核心，打造台灣家庭首選的可機洗機能寢具品牌，解決濕熱、過敏、難清洗的真實痛點。">NUBIZIO 以「機能 × 美感 × 健康」三大核心，打造台灣家庭首選的可機洗機能寢具品牌，解決濕熱、過敏、難清洗的真實痛點。</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hero-stat-num" data-original="2012">2012</span><span class="hero-stat-label" data-original="韓國創立年份">韓國創立年份</span></div>
+      <div class="hero-stat"><span class="hero-stat-num" data-original="176+">176+</span><span class="hero-stat-label" data-original="商品品項數量">商品品項數量</span></div>
+      <div class="hero-stat"><span class="hero-stat-num" data-original="B2B">B2B</span><span class="hero-stat-label" data-original="批發通路支援">批發通路支援</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="hero-scroll-line"></div><span>Scroll</span></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="section-wrap">
+    <div class="fade-up visible">
+      <div class="section-label" data-original="About NUBIZIO">About NUBIZIO</div>
+      <h2 class="section-title" data-original="韓國最懂「深眠」&lt;br&gt;的&lt;em&gt;寢具品牌&lt;/em&gt;">韓國最懂「好眠」<br>的<em>寢具品牌</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="about-grid fade-up visible">
+      <div class="about-text">
+        <p data-original="&lt;strong&gt;NUBIZIO（누비지오）&lt;/strong&gt;成立於 2012 年，總部位於韓國京畿道龍仁市，是一個以「機能性寢具」為核心的專業家居品牌，擁有實體展示空間（Showroom）與完整的 B2B 批發體系。"><strong data-original="NUBIZIO（누비지오）">NUBIZIO（누비지오）</strong>成立於 2012 年，總部位於韓國京畿道龍仁市，是一個以「機能性寢具」為核心的專業家居品牌，擁有實體展示空間（Showroom）與完整的 B2B 批發體系。</p>
+        <p data-original="品牌聚焦於解決台灣家庭最真實的睡眠困擾——&lt;strong&gt;濕熱氣候難以入眠、傳統棉被不易清洗、過敏問題反覆發作、居家空間有限&lt;/strong&gt;——透過可機洗設計、抗過敏材質與四季適用的多功能產品，讓每個家庭都能享有輕鬆高品質的睡眠體驗。">品牌聚焦於解決台灣家庭最真實的睡眠困擾——<strong data-original="濕熱氣候難以入眠、傳統棉被不易清洗、過敏問題反覆發作、居家空間有限">濕熱氣候難以入眠、傳統棉被不易清洗、過敏問題反覆發作、居家空間有限</strong>——透過可機洗設計、抗過敏材質與四季適用的多功能產品，讓每個家庭都能享有輕鬆高品質的睡眠體驗。</p>
+        <p data-original="NUBIZIO 不只是一個品牌，更是台灣家庭生活方式升級的推手，以「健康、效率、美感」為三大核心定位。">NUBIZIO 不只是一個品牌，更是台灣家庭生活方式升級的推手，以「健康、效率、美感」為三大核心定位。</p>
+      </div>
+      <div class="about-values">
+        <div class="value-card"><span class="value-icon">✦</span><div class="value-name" data-original="美感設計">美感設計</div><div class="value-desc" data-original="專屬設計師操刀配色，符合現代居家美學，有分享欲才有口碑">專屬設計師操刀配色，符合現代居家美學，有分享欲才有口碑</div></div>
+        <div class="value-card"><span class="value-icon">⟳</span><div class="value-name" data-original="可機洗機能">可機洗機能</div><div class="value-desc" data-original="一般家用洗衣機直接清洗，不縮水不結塊，洗後快速恢復">一般家用洗衣機直接清洗，不縮水不結塊，洗後快速恢復</div></div>
+        <div class="value-card"><span class="value-icon">◎</span><div class="value-name" data-original="安全材質">安全材質</div><div class="value-desc" data-original="符合安全標準的環保材料，從新生兒到長輩全家皆適用">符合安全標準的環保材料，從新生兒到長輩全家皆適用</div></div>
+        <div class="value-card"><span class="value-icon">▽</span><div class="value-name" data-original="清潔便利">清潔便利</div><div class="value-desc" data-original="省力省時，特別適合台灣忙碌的雙薪家庭日常維護">省力省時，特別適合台灣忙碌的雙薪家庭日常維護</div></div>
+        <div class="value-card" style="grid-column: 1 / -1;"><span class="value-icon">∞</span><div class="value-name" data-original="環保永續">環保永續</div><div class="value-desc" data-original="負責任的生產方式，致力於減少環境衝擊，與現代消費者價值觀對齊">負責任的生產方式，致力於減少環境衝擊，與現代消費者價值觀對齊</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER 1 -->
+<div class="banner-strip">
+  <img src="img_004_c8b87516.jpg" alt="NUBIZIO" data-edit-bound="1">
+  <div class="banner-strip-overlay" style="background: rgba(26,24,20,0.48);">
+    <div class="banner-strip-text"><h2 data-original="深眠，從選對寢具開始">好眠，從選對寢具開始</h2><p data-original="Korea's Functional Bedding Leader · Since 2012">Korea's Functional Bedding Leader · Since 2012</p></div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story-section" id="story">
+  <div class="story-wrap">
+    <div class="story-img fade-up visible">
+      <img src="img_005_c7a719a4.jpg" alt="NUBIZIO 品牌故事" data-edit-bound="1">
+      <span class="story-img-badge" data-original="Brand Story">Brand Story</span>
+    </div>
+    <div class="story-content fade-up visible">
+      <div class="section-label" data-original="Our Story">Our Story</div>
+      <h2 class="section-title" data-original="誕生於對&lt;br&gt;&lt;em&gt;家的極致關注&lt;/em&gt;">誕生於對<br><em>家的極致關注</em></h2>
+      <div class="divider"></div>
+      <div class="story-text">
+        <p data-original="台灣代理商 CHIMGU 寢谷家居的創辦人 Heady，從室內設計師轉職為全職媽媽後，長年沉浸於比例美學與材質挑選。育兒期間，她發現家中寢具竟是導致孩子反覆氣喘與過敏的根源之一。">台灣代理商 CHIMGU 寢谷家居的創辦人 Heady，從室內設計師轉職為全職媽媽後，長年沉浸於比例美學與材質挑選。育兒期間，她發現家中寢具竟是導致孩子反覆氣喘與過敏的根源之一。</p>
+        <p data-original="這段親身經歷讓她開始深入研究寢具在健康、安全與便利清洗方面的重要性，最終在韓國找到了真正符合台灣家庭需求的品牌——NUBIZIO。">這段親身經歷讓她開始深入研究寢具在健康、安全與便利清洗方面的重要性，最終在韓國找到了真正符合台灣家庭需求的品牌——NUBIZIO。</p>
+      </div>
+      <div class="story-quote"><p data-original="&quot;台灣市場上漂亮的不實用，實用的不好看，符合健康標準的又難以清洗。NUBIZIO 是我見過唯一能夠同時解決這三個問題的品牌。&quot;">"台灣市場上漂亮的不實用，實用的不好看，符合健康標準的又難以清洗。NUBIZIO 是我見過唯一能夠同時解決這三個問題的品牌。"</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="section-wrap">
+    <div class="products-header fade-up visible">
+      <div>
+        <div class="section-label" data-original="Product Line">Product Line</div>
+        <h2 class="section-title" data-original="主力&lt;em&gt;產品線&lt;/em&gt;">主力<em>產品線</em></h2>
+        <div class="divider"></div>
+      </div>
+      <p data-original="NUBIZIO 提供完整的機能寢具產品組合，從四季被、床墊到兒童系列，超過 176 件商品，滿足台灣不同家庭型態的需求，可依通路特性靈活組合推薦。">NUBIZIO 提供完整的機能寢具產品組合，從四季被、床墊到兒童系列，超過 176 件商品，滿足台灣不同家庭型態的需求，可依通路特性靈活組合推薦。</p>
+    </div>
+    <!-- ── 主力商品 1: 可機洗四季被 ── -->
+    <div class="product-hero fade-up visible">
+      <div class="product-hero-img"><img src="img_006_0c8296fd.png" alt="NUBIZIO 可機洗四季被 차렵이불" data-edit-bound="1" data-original-src="https://www.nubizio.co.kr/shopimages/nubizio777/0730010002913.jpg?1777250321"></div>
+      <div class="product-hero-info">
+        <span class="product-badge" data-original="Hero Product — 主力明星商品">Hero Product — 主力明星商品</span>
+        <h3 class="product-name" data-original="可機洗四季被&lt;br&gt;차렵이불">可機洗四季被<br>차렵이불</h3>
+        <p class="product-desc" data-original="NUBIZIO 第一主力商品。特殊立體縫線固定填充物，確保機洗後不結塊、不變形、快速乾燥。針對台灣濕熱氣候與雙薪家庭清洗需求設計，四季皆可使用，多色系選擇配合寢室美學。">NUBIZIO 第一主力商品。特殊立體縫線固定填充物，確保機洗後不結塊、不變形、快速乾燥。針對台灣濕熱氣候與雙薪家庭清洗需求設計，四季皆可使用，多色系選擇配合寢室美學。</p>
+        <div class="product-features">
+          <div class="feat-row" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;家用洗衣機直接機洗，快乾不縮水"><span class="feat-dot"></span>家用洗衣機直接機洗，快乾不縮水</div>
+          <div class="feat-row" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;抗蟎抗過敏機能設計"><span class="feat-dot"></span>抗蟎抗過敏機能設計</div>
+          <div class="feat-row" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;SS / Q / K 三種尺寸，多色系可選"><span class="feat-dot"></span>SS / Q 三種尺寸，多色系可選</div>
+          <div class="feat-row" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;韓國熱銷 — 1,000+ 顧客五星好評"><span class="feat-dot"></span>韓國熱銷 — 1,000+ 顧客五星好評</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 主力商品 2: 多功能床墊 (침대패드) ── -->
+    <div class="product-hero fade-up visible" style="margin-bottom: 1.5px;">
+      <div class="product-hero-info" style="padding: 3rem; background: #1A1814;">
+        <span class="product-badge" data-original="Hero Product — 主力明星商品">Hero Product — 主力明星商品</span>
+        <h3 class="product-name" style="color: white;" data-original="多功能床墊&lt;br&gt;침대패드">多功能床墊<br>침대패드</h3>
+        <p class="product-desc" style="color: rgba(255,255,255,0.6);" data-original="NUBIZIO 第二主力商品。提供防塵、抗菌的全方位床鋪保護，有效隔絕塵蟎繁殖，延長床墊使用壽命。可機洗設計，搭配四季被使用，打造完整健康睡眠系統。">NUBIZIO 第二主力商品。提供防塵、抗菌的全方位床鋪保護，有效隔絕塵蟎繁殖，延長床墊使用壽命。可機洗設計，搭配四季被使用，打造完整健康睡眠系統。</p>
+        <div class="product-features">
+          <div class="feat-row" style="color: rgba(255,255,255,0.6);" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;防塵抗菌機能，隔絕塵蟎"><span class="feat-dot"></span>防塵抗菌機能，隔絕塵蟎</div>
+          <div class="feat-row" style="color: rgba(255,255,255,0.6);" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;可機洗直接清洗，維護方便"><span class="feat-dot"></span>可機洗直接清洗，維護方便</div>
+          <div class="feat-row" style="color: rgba(255,255,255,0.6);" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;SS / Q / K 三種尺寸"><span class="feat-dot"></span>SS / Q / K 三種尺寸</div>
+          <div class="feat-row" style="color: rgba(255,255,255,0.6);" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;與四季被搭配，完整睡眠方案"><span class="feat-dot"></span>與四季被搭配，完整睡眠方案</div>
+        </div>
+      </div>
+      <div class="product-hero-img"><img src="img_007_0c8296fd.png" alt="NUBIZIO 多功能床墊 침대패드" data-edit-bound="1" data-original-src="https://www.nubizio.co.kr/shopimages/nubizio777/0730010001203.jpg?1776665240"></div>
+    </div>
+
+    <!-- ── 3 格產品 ── -->
+    <div class="product-grid fade-up visible">
+      <div class="product-card">
+        <div class="product-card-img"><img src="img_008_14667f85.gif" alt="NUBIZIO 夏季薄被" data-edit-bound="1" data-original-src="https://www.nubizio.co.kr/shopimages/nubizio777/0730010003293.jpg?1776747227"></div>
+        <div class="product-card-body">
+          <span class="product-badge" style="font-size:9px; padding:3px 10px;" data-original="夏季系列">夏季系列</span>
+          <h3 class="product-name" data-original="여름 차렵이불&lt;br&gt;夏季薄被">여름 차렵이불<br>夏季薄被</h3>
+          <p class="product-desc" data-original="輕薄透氣設計，專為台灣夏季高溫優化。輕盈不悶熱，支援家用洗衣機機洗，快速乾燥，夏季必備。">輕薄透氣設計，專為台灣夏季高溫優化。輕盈不悶熱，支援家用洗衣機機洗，快速乾燥，夏季必備。</p>
+          <div class="product-features"><div class="feat-row" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;夏季輕薄，透氣不悶"><span class="feat-dot"></span>夏季輕薄，透氣不悶</div><div class="feat-row" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;SS / Q / K 尺寸"><span class="feat-dot"></span>SS / Q&nbsp; 尺寸</div></div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img"><img src="img_009_3aef46fd.gif" alt="NUBIZIO 미피키즈 MIFFY兒童寢具" data-edit-bound="1" data-original-src="https://www.nubizio.co.kr/shopimages/nubizio777/0730010002893.jpg?1754444784"></div>
+        <div class="product-card-body">
+          <span class="product-badge" style="font-size:9px; padding:3px 10px;" data-original="兒童專用">兒童專用</span>
+          <h3 class="product-name" data-original="미피♡키즈&lt;br&gt;MIFFY 兒童寢具"><p class="p1" style="font-style: normal; font-variant: normal; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-stretch: normal; font-size: 13px; line-height: normal; font-family: &quot;Apple SD Gothic Neo&quot;; color: rgb(0, 0, 0);"><b style="font-size: medium;"><span style="font-size: 14pt; line-height: 21.4667px;">아뜰리에</span></b><span style="font-size: medium;"></span></p>兒童寢具</h3>
+          <p class="product-desc" data-original="MIFFY 聯名兒童系列，低刺激安全材質，色彩鮮豔孩童喜愛。機洗不縮水不褪色，適合幼兒園到小學生。"><b style="color: rgb(0, 0, 0); font-family: Aptos, sans-serif; font-size: 12pt;"><span lang="EN-US" style="font-size: 9pt; font-family: Montserrat; color: rgb(26, 26, 26);">Duralon</span></b>兒童系列，M2抗過敏安全材質，色彩鮮豔孩童喜愛。機洗不縮水不褪色，適合幼兒園到小學生。</p>
+          <div class="product-features"><div class="feat-row" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;低刺激兒童安全設計"><span class="feat-dot"></span><span style="font-size: 12.5px;">M2抗過敏安全材質</span></div><div class="feat-row" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;MIFFY 授權可愛配色"><span class="feat-dot"></span>SS 尺寸<br></div></div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img"><img src="img_010_78464c41.jpg" alt="NUBIZIO 차렵이불 간절기" data-edit-bound="1" data-original-src="https://www.nubizio.co.kr/shopimages/nubizio777/0730010002903.jpg?1777339621"></div>
+        <div class="product-card-body">
+          <span class="product-badge" style="font-size:9px; padding:3px 10px;" data-original="春秋過渡款">春秋過渡款</span>
+          <h3 class="product-name" data-original="간절기 차렵이불&lt;br&gt;春秋過渡被">간절기 차렵이불<br>雙材質冬季被<br></h3>
+          <p class="product-desc" data-original="厚薄介於夏季與冬季之間，春秋換季首選。百搭配色全年適用，可機洗快乾，維持被子蓬鬆感。">雙材質冬被，單面超細纖維短絨毛，可依喜好兩面使用，外柔內軟，告別厚重，可機洗，輕鬆好眠。<br></p>
+          <div class="product-features"><div class="feat-row" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;春秋換季最佳選擇"><span class="feat-dot"></span>冬季最佳選擇</div><div class="feat-row" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;SS / Q / K 尺寸"><span class="feat-dot"></span>SS / Q 尺寸</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 2 格組合 ── -->
+    <div class="product-2col fade-up visible" style="margin-top: 1.5px;">
+      <div class="product-2col-card">
+        <div class="product-2col-img"><img src="https://www.nubizio.co.kr/shopimages/nubizio777/0730020005673.jpg?1775202599" alt="NUBIZIO 원클릭풀세트 一鍵全套組" data-edit-bound="1"></div>
+        <div class="product-2col-body">
+          <span class="product-badge" style="font-size:9px; padding:3px 10px;" data-original="全套組合">全套組合</span>
+          <h3 class="product-name" data-original="원클릭풀세트&lt;br&gt;一鍵全套組">원클릭풀세트<br>一鍵全套組</h3>
+          <p class="product-desc" data-original="被子 + 枕頭套 + 床包一次購齊，同系列配色統一，快速打造質感臥室。租屋族、新婚夫妻、整房換新的最佳首選。">被子 + 枕頭套 + 床包一次購齊，同系列配色統一，快速打造質感臥室。租屋族、新婚夫妻、整房換新的最佳首選。</p>
+          <div class="product-features"><div class="feat-row" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;一次購齊省時省力"><span class="feat-dot"></span>一次購齊省時省力</div><div class="feat-row" data-original="&lt;span class=&quot;feat-dot&quot;&gt;&lt;/span&gt;同系列配色，質感統一"><span class="feat-dot"></span>同系列配色，質感統一</div></div>
+        </div>
+      </div>
+      <div class="product-2col-card" style="background: var(--nub-coral-pale);">
+        <div class="product-2col-body" style="display: flex; flex-direction: column; justify-content: center; padding: 2.5rem;">
+          <span class="product-badge" style="font-size:9px; padding:3px 10px; align-self: flex-start; margin-bottom: 1.25rem;" data-original="更多產品">更多產品</span>
+          <h3 class="product-name" style="font-size: 16px;" data-original="176+ 件完整商品線">176+ 件完整商品線</h3>
+          <p class="product-desc" style="font-size: 12px; margin-bottom: 1rem;" data-original="包含：羽絨被系列、被套組合、枕芯枕套、夏涼墊、保潔墊、單人寢具等，可依通路需求靈活選配。">包含：羽絨被系列、被套組合、枕芯枕套、夏涼墊、保潔墊、單人寢具等，可依通路需求靈活選配。</p>
+          <div style="font-size: 11px; color: var(--nub-coral); font-weight: 500; letter-spacing: 0.08em;">→ 完整商品目錄請洽台灣代理</div>
+        </div>
+        <div class="product-2col-img" style="background: linear-gradient(135deg, var(--nub-coral) 0%, var(--nub-coral-dark) 100%); display: flex; align-items: center; justify-content: center; min-height: 180px;">
+          <div style="text-align: center; color: white; padding: 1rem;">
+            <div style="font-size: 36px; font-weight: 700; line-height: 1; margin-bottom: 4px;">176</div>
+            <div style="font-size: 10px; letter-spacing: 0.2em; opacity: 0.8; text-transform: uppercase;">Products</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ──────────────────────────────────────
+   PARALLAX + SCROLL FADE (always on)
+────────────────────────────────────── */
+const heroBg = document.getElementById('heroBg');
+window.addEventListener('scroll', () => {
+  if (heroBg) heroBg.style.transform = `translateY(${window.scrollY * 0.28}px)`;
+}, { passive: true });
+
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+/* ──────────────────────────────────────
+   EDIT MODE ENGINE
+────────────────────────────────────── */
+let editMode = false;
+let history = [];  // undo stack: [{el, oldHTML}]
+let pendingImg = null; // img element waiting for file
+
+// Elements to make editable — text nodes
+const EDITABLE_SELECTORS = [
+  '.hero-eyebrow', '.hero-tagline', '.hero-sub',
+  '.hero-stat-num', '.hero-stat-label',
+  '.banner-strip-text h2', '.banner-strip-text p',
+  '.section-label', '.section-title', '.about-text p',
+  '.value-name', '.value-desc',
+  '.story-quote p', '.story-text p', '.story-img-badge',
+  '.product-badge', '.product-name', '.product-desc',
+  '.feat-row', '.audience-name', '.audience-desc', '.audience-num',
+  '.why-title', '.why-desc', '.why-num',
+  '.pain-title', '.pain-desc',
+  '.segment-item span',
+  '.standard-title', '.standard-desc',
+  '.partner-step-title', '.partner-step-desc', '.partner-step-num',
+  '.partner-kpi-num', '.partner-kpi-label',
+  '.footer-tagline',
+  'h1', 'h2', 'h3',
+  '.products-header p',
+  '.about-text strong',
+];
+
+function toggleEdit() {
+  editMode = !editMode;
+  document.body.classList.toggle('edit-mode', editMode);
+
+  const btnToggle = document.getElementById('btn-toggle-edit');
+  const btnSave = document.getElementById('btn-save');
+  const btnCancel = document.getElementById('btn-cancel');
+  const dot = document.getElementById('tb-dot');
+  const status = document.getElementById('tb-status');
+  const div2 = document.getElementById('tb-div2');
+
+  if (editMode) {
+    // Enable contenteditable on all text elements
+    EDITABLE_SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        // Skip if element contains only child elements (like hero-eyebrow with ::before)
+        el.setAttribute('contenteditable', 'true');
+        el.setAttribute('spellcheck', 'false');
+        el.dataset.original = el.innerHTML;
+
+        el.addEventListener('focus', () => saveSnapshot(el), { once: false });
+        el.addEventListener('keydown', e => {
+          if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); document.execCommand('insertLineBreak'); }
+          if (e.key === 'Escape') { el.blur(); }
+        });
+      });
+    });
+
+    // Enable image click-to-replace
+    document.querySelectorAll('img').forEach(img => {
+      if (!img.dataset.editBound) {
+        img.dataset.editBound = '1';
+        img.addEventListener('click', onImgClick);
+      }
+    });
+
+    btnToggle.style.display = 'none';
+    btnSave.style.display = '';
+    btnCancel.style.display = '';
+    dot.style.display = '';
+    status.style.display = '';
+    div2.style.display = '';
+    showToast('編輯模式已開啟');
+  } else {
+    exitEdit();
+    btnToggle.innerHTML = '✏️ 編輯模式';
+    btnToggle.style.display = '';
+    btnSave.style.display = 'none';
+    btnCancel.style.display = 'none';
+    dot.style.display = 'none';
+    status.style.display = 'none';
+    div2.style.display = 'none';
+  }
+}
+
+function exitEdit() {
+  document.querySelectorAll('[contenteditable]').forEach(el => {
+    el.removeAttribute('contenteditable');
+    el.removeAttribute('spellcheck');
+  });
+}
+
+function cancelEdit() {
+  // Restore all originals
+  document.querySelectorAll('[data-original]').forEach(el => {
+    el.innerHTML = el.dataset.original;
+    delete el.dataset.original;
+  });
+  // Restore replaced images
+  document.querySelectorAll('img[data-original-src]').forEach(img => {
+    img.src = img.dataset.originalSrc;
+    delete img.dataset.originalSrc;
+  });
+  history = [];
+  editMode = false;
+  document.body.classList.remove('edit-mode');
+  exitEdit();
+
+  const btnToggle = document.getElementById('btn-toggle-edit');
+  btnToggle.innerHTML = '✏️ 編輯模式';
+  btnToggle.style.display = '';
+  document.getElementById('btn-save').style.display = 'none';
+  document.getElementById('btn-cancel').style.display = 'none';
+  document.getElementById('tb-dot').style.display = 'none';
+  document.getElementById('tb-status').style.display = 'none';
+  document.getElementById('tb-div2').style.display = 'none';
+  showToast('已還原所有變更');
+}
+
+function saveSnapshot(el) {
+  // Called on focus — push to history if changed
+  const current = el.innerHTML;
+  if (!el._lastSnap || el._lastSnap !== current) {
+    el._lastSnap = current;
+  }
+}
+
+/* Image replacement */
+function onImgClick(e) {
+  if (!editMode) return;
+  pendingImg = e.currentTarget;
+  const input = document.getElementById('img-upload-input');
+  input.click();
+}
+
+document.getElementById('img-upload-input').addEventListener('change', function() {
+  if (!this.files || !this.files[0] || !pendingImg) return;
+  const file = this.files[0];
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    if (!pendingImg.dataset.originalSrc) {
+      pendingImg.dataset.originalSrc = pendingImg.src;
+    }
+    pendingImg.src = ev.target.result;
+    showToast('圖片已更換 — 記得下載儲存');
+    pendingImg = null;
+  };
+  reader.readAsDataURL(file);
+  this.value = '';
+});
+
+/* Save / Download */
+function saveHTML() {
+  // Temporarily remove edit attributes before saving
+  const editables = document.querySelectorAll('[contenteditable]');
+  const snapshots = [];
+  editables.forEach(el => {
+    snapshots.push({ el, val: el.getAttribute('contenteditable') });
+    el.removeAttribute('contenteditable');
+    el.removeAttribute('spellcheck');
+  });
+
+  // Remove toolbar from saved HTML
+  const toolbar = document.getElementById('edit-toolbar');
+  const toast = document.getElementById('undo-toast');
+  const uploadInput = document.getElementById('img-upload-input');
+  toolbar.style.display = 'none';
+  toast.style.display = 'none';
+  uploadInput.style.display = 'none';
+
+  const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+
+  // Restore
+  toolbar.style.display = '';
+  toast.style.display = '';
+  uploadInput.style.display = '';
+  snapshots.forEach(({ el, val }) => el.setAttribute('contenteditable', val));
+  editables.forEach(el => el.setAttribute('spellcheck', 'false'));
+
+  // Trigger download
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'NUBIZIO_Brand_Introduction_Taiwan.html';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('✓ 已下載更新後的 HTML 檔案');
+}
+
+/* Toast */
+function showToast(msg) {
+  const t = document.getElementById('undo-toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2400);
+}
+</script>
+
+
+
+</body>
+</html>
